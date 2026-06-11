@@ -1,131 +1,109 @@
-<!DOCTYPE html>  <html lang="pt">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Cuanza Norte V3 Turismo</title>  <style>  
-body{  
-    margin:0;  
-    font-family:Arial;  
-    background:#0b1f17;  
-    color:white;  
-}  
-  
-header{  
-    background:linear-gradient(135deg,#1b4332,#2d6a4f);  
-    padding:30px;  
-    text-align:center;  
-}  
-  
-.container{  
-    max-width:900px;  
-    margin:auto;  
-    padding:20px;  
-}  
-  
-.card{  
-    background:#163024;  
-    padding:20px;  
-    margin:15px 0;  
-    border-radius:12px;  
-}  
-  
-button{  
-    background:#2d6a4f;  
-    color:white;  
-    padding:12px;  
-    border:none;  
-    border-radius:8px;  
-    cursor:pointer;  
-    margin-top:10px;  
-}  
-  
-.premium{  
-    display:none;  
-    background:#1f3d2c;  
-    padding:15px;  
-    border-radius:10px;  
-}  
-  
-.lock{  
-    background:#3a1f1f;  
-    padding:10px;  
-    border-radius:8px;  
-}  
-  
-footer{  
-    background:#08140f;  
-    text-align:center;  
-    padding:20px;  
-    margin-top:20px;  
-    font-size:14px;  
-}  
-</style>  </head>  <body>  <header>  
-<h1>🌍 Cuanza Norte Turismo V3</h1>  
-<p>Explora Angola com guia digital inteligente</p>  
-</header>  <div class="container">  <!-- 🟢 FREE -->  <div class="card">  
-<h2>🟢 Versão Free</h2>  
-<p>Destinos: Ndalatando, Cambambe, Rio Kwanza</p>  
-<p>Informações básicas para visitantes</p>  
-</div>  <!-- 💎 PREMIUM -->  <div class="card">  <h2>💎 Versão Premium</h2>  <div id="premium" class="premium">  
-<p>🔥 Roteiros completos</p>  
-<p>🗺️ Mapas avançados</p>  
-<p>📍 Locais secretos do Cuanza Norte</p>  
-</div>  <div id="lock" class="lock">  
-🔒 Conteúdo Premium bloqueado  
-</div>  <button onclick="abrirPagamento()">  
-💳 Ativar Premium (5$)  
-</button>  </div>  <!-- 🇦🇴 PAGAMENTO LOCAL -->  <div class="card">  
-<h2>🇦🇴 Pagamento Local Angola</h2>  <p>Bancos disponíveis:</p>  
-<ul>  
-<li>BAI</li>  
-<li>BPC</li>  
-<li>BIC</li>  
-<li>Banco Sol</li>  
-<li>Banco Económico</li>  
-</ul>  <button onclick="pagamentoLocal()">  
-💳 Confirmar transferência local  
-</button>  
-</div>  <!-- 📞 CONTACTO -->  <div class="card">  
-<h2>📞 Contacto</h2>  
-<p>Telefone: 973-8065-24</p>  
-<p>Suporte e parcerias disponíveis</p>  
-</div>  </div>  <footer>  
-© 2026 Cuanza Norte Tourism V3 | Projeto digital de exploração turística  
-</footer>  <script>  
-  
-let premiumAtivo = false;  
-  
-// 🌍 pagamento internacional  
-function abrirPagamento(){  
-    alert("A abrir pagamento internacional (Payoneer) 💳");  
-  
-    window.open("https://www.payoneer.com/", "_blank");  
-  
-    setTimeout(()=>{  
-        ativarPremium();  
-    }, 5000);  
-}  
-  
-// 🇦🇴 pagamento local  
-function pagamentoLocal(){  
-    alert(  
-`🏦 Transferência local:  
-  
-Banco: BAI / BPC / BIC / Banco Sol / Económico  
-Titular: (o teu nome)  
-Referência: CUANZA PREMIUM  
-  
-Após confirmação, o Premium será ativado manualmente.`  
-    );  
-}  
-  
-// 🔓 ativar premium  
-function ativarPremium(){  
-    premiumAtivo = true;  
-    document.getElementById("premium").style.display = "block";  
-    document.getElementById("lock").style.display = "none";  
-    alert("💎 Premium ativado com sucesso!");  
-}  
-  
-</script>  </body>  
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuanza Norte AI Tourism</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(180deg,#071a12,#0b2b1e);
+    color:white;
+}
+
+header{
+    padding:30px;
+    text-align:center;
+    background:linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#163024;
+    padding:18px;
+    margin:15px 0;
+    border-radius:14px;
+}
+
+button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2d6a4f;
+    color:white;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.ai-box{
+    background:#0f3d2e;
+    padding:15px;
+    border-radius:10px;
+    margin-top:10px;
+    display:none;
+    white-space:pre-line;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:13px;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🌍 Cuanza Norte AI Tourism</h1>
+<p>Explora Angola com um guia inteligente</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>🤖 Assistente Virtual</h2>
+<p>Clica para iniciar a experiência</p>
+<button onclick="iniciarIA()">Iniciar guia</button>
+<div id="ai" class="ai-box"></div>
+</div>
+
+<div class="card">
+<h2>🌿 Destinos turísticos</h2>
+<p>📍 Ndalatando</p>
+<p>⚡ Cambambe</p>
+<p>🌊 Rio Kwanza</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Cuanza Norte AI Tourism
+</footer>
+
+<script>
+function iniciarIA(){
+    let box = document.getElementById("ai");
+    box.style.display = "block";
+
+    box.innerText =
+`👋 Olá!
+
+Sou o Assistente do Cuanza Norte AI Tourism.
+
+🌍 Vou guiar-te por Angola.
+
+👉 Explora os destinos abaixo.`;
+}
+</script>
+
+</body>
 </html>
