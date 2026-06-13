@@ -3,62 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cuanza Norte Explorer</title>
 
+<!-- PWA CONFIG -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1b4332">
+
 <style>
-body{<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-</script>
+body{
     margin:0;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
     background:#0b1f17;
     color:white;
 }
 
 header{
     background:linear-gradient(135deg,#1b4332,#2d6a4f);
-    padding:30px;
+    padding:25px;
     text-align:center;
 }
 
 .container{
     max-width:900px;
     margin:auto;
-    padding:20px;
+    padding:15px;
 }
 
 .card{
     background:#163024;
-    margin:20px 0;
+    margin:15px 0;
     border-radius:14px;
     overflow:hidden;
-    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-iframe{
-    width:100%;
-    height:250px;
-    border:0;
-}
-
-.content{
+.card-content{
     padding:15px;
 }
 
 h2{
     color:#b7e4c7;
+    margin-top:0;
+}
+
+p{
+    line-height:1.5;
 }
 
 button{
-    padding:10px;
+    padding:10px 12px;
     border:none;
     border-radius:8px;
     background:#2d6a4f;
     color:white;
     cursor:pointer;
-    margin-top:8px;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#1b4332;
+}
+
+iframe{
+    width:100%;
+    height:220px;
+    border:0;
 }
 
 footer{
@@ -68,141 +78,79 @@ footer{
     opacity:0.7;
 }
 </style>
-</head><link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1b4332">
+
+</head>
 
 <body>
 
 <header>
 <h1>🌍 Cuanza Norte Explorer</h1>
-<p>Guia turístico com Google Maps integrado</p>
+<p>Guia turístico inteligente de Angola</p>
 </header>
 
 <div class="container">
 
-<!-- NDALATANDO -->
+<!-- RIO KWANZA -->
 <div class="card">
-<iframe src="https://www.google.com/maps?q=Ndalatando,Angola&output=embed"></iframe>
-<div class="content">
-<h2>📍 Ndalatando (Capital)</h2>
-<p>Centro administrativo do Cuanza Norte, cidade verde e urbana.</p>
-<button onclick="ir('Ndalatando, Angola')">🧭 Ir para lá</button>
-</div>
-</div>
+<iframe src="https://www.google.com/maps?q=Rio+Kwanza+Angola&output=embed"></iframe>
 
-<!-- CAMBAMBE -->
-<div class="card">
-<iframe src="https://www.google.com/maps?q=Cambambe,Angola&output=embed"></iframe>
-<div class="content">
-<h2>⚡ Cambambe</h2>
-<p>Famosa pela barragem hidroelétrica no rio Kwanza.</p>
-<button onclick="ir('Cambambe, Angola')">🧭 Ir para lá</button>
-</div>
-</div>
+<div class="card-content">
+<h2>🌊 Rio Kwanza</h2>
 
-<!-- GOLUNGO ALTO -->
-<div class="card">
-<iframe src="https://www.google.com/maps?q=Golungo%20Alto,Angola&output=embed"></iframe>
-<div class="content">
-<h2>🌿 Golungo Alto</h2>
-<p>Zona rica em natureza, agricultura e paisagens verdes.</p>
-<button onclick="ir('Golungo Alto, Angola')">🧭 Ir para lá</button>
-</div>
-</div>
+<p>O maior rio de Angola atravessa o Cuanza Norte, criando paisagens naturais e zonas de turismo ecológico.</p>
 
-<!-- AMBACA -->
-<div class="card">
-<iframe src="https://www.google.com/maps?q=Ambaca,Angola&output=embed"></iframe>
-<div class="content">
-<h2>🌾 Ambaca</h2>
-<p>Região histórica e rural com forte ligação cultural.</p>
-<button onclick="ir('Ambaca, Angola')">🧭 Ir para lá</button>
-</div>
-</div>
+<p>🚤 Atividades: Pesca, fotografia, natureza</p>
 
-<!-- BANGA -->
-<div class="card">
-<iframe src="https://www.google.com/maps?q=Banga,Angola&output=embed"></iframe>
-<div class="content">
-<h2>🏞️ Banga</h2>
-<p>Zona agrícola com paisagens naturais e aldeias tradicionais.</p>
-<button onclick="ir('Banga, Angola')">🧭 Ir para lá</button>
+<button onclick="abrirMapa('Rio Kwanza Angola')">🗺️ Ver rota</button>
 </div>
 </div>
-
-</div>
-<div class="container">
-
-<h1>🌿 Natureza e Cultura do Cuanza Norte</h1>
 
 <!-- MUANDA -->
 <div class="card">
-<h2>🌊 Quedas de Água de Cazengo (Muanda)</h2>
+<iframe src="https://www.google.com/maps?q=Cazengo+Angola&output=embed"></iframe>
 
-<p>
-Localizadas na região de Cazengo, estas quedas de água são conhecidas localmente como “Muanda”.
-São zonas naturais usadas por habitantes para lazer e banho, rodeadas por vegetação e paisagens rurais.
-</p>
+<div class="card-content">
+<h2>🌊 Quedas de Água (Muanda)</h2>
 
-<p>
-📍 Tipo: Queda de água natural  
-🧭 Experiência: Banho, lazer e contacto com a natureza  
-⚠️ Nota: Nome popular local, pode variar de aldeia para aldeia
-</p>
+<p>Zona natural de quedas de água e banhos na região de Cazengo.</p>
 
-<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Cazengo+quedas+de+agua+Angola','_blank')">
-🗺️ Ver no Google Maps
-</button>
+<p>🏊 Atividades: Banho, lazer, fotografia</p>
+
+<button onclick="abrirMapa('Cazengo quedas de agua')">🗺️ Ver rota</button>
+</div>
 </div>
 
 <!-- ROSA DE PORCELANA -->
 <div class="card">
-<h2>🌸 Rosa de Porcelana (Símbolo Cultural)</h2>
+<iframe src="https://www.google.com/maps?q=Angola+flora&output=embed"></iframe>
 
-<p>
-A chamada “Rosa de Porcelana” é uma flor ornamental muito apreciada no Cuanza Norte pela sua beleza delicada e aparência única.
-Em várias comunidades locais, é associada ao amor e ao afeto, sendo oferecida como gesto simbólico entre casais.
-</p>
+<div class="card-content">
+<h2>🌸 Rosa de Porcelana</h2>
 
-<p>
-📍 Tipo: Flor ornamental  
-💖 Significado: Amor e ligação emocional  
-🌿 Uso: Cultura local e decoração natural
-</p>
+<p>Flor ornamental associada ao amor e à cultura local do Cuanza Norte.</p>
 
-<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=plants+Angola+ornamental','_blank')">
-🗺️ Explorar plantas semelhantes
-</button>
+<p>💖 Significado: Amor e tradição cultural</p>
+
+<button onclick="abrirMapa('Angola flores ornamentais')">🗺️ Explorar flora</button>
 </div>
-
-<!-- RIO KWANZA -->
-<div class="card">
-<h2>🌊 Rio Kwanza</h2>
-
-<p>
-O maior rio de Angola atravessa a região do Cuanza Norte, criando paisagens naturais, zonas de pesca e áreas de turismo ecológico.
-</p>
-
-<p>
-📍 Tipo: Rio nacional  
-🚤 Atividades: Pesca, fotografia, natureza  
-🌍 Importância: Fonte de vida e energia (hidroelétrica)
-</p>
-
-<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Rio+Kwanza+Angola','_blank')">
-🗺️ Ver no mapa
-</button>
 </div>
 
 </div>
+
 <footer>
-© 2026 Cuanza Norte Explorer | Google Maps integrado
+© 2026 Cuanza Norte Explorer | PWA Turismo Angola
 </footer>
 
+<!-- JAVASCRIPT -->
 <script>
-function ir(local){
+function abrirMapa(local){
     let url = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(local);
     window.open(url, "_blank");
+}
+
+// PWA SERVICE WORKER
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
 }
 </script>
 
