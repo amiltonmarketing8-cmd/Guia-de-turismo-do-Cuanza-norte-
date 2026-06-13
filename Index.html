@@ -6,7 +6,11 @@
 <title>Cuanza Norte Explorer</title>
 
 <style>
-body{
+body{<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
     margin:0;
     font-family:Arial;
     background:#0b1f17;
