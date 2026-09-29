@@ -1105,6 +1105,16 @@ function ativarPremium() {
 }
 
 </script>
-
+        
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker registado!"))
+      .catch(error => console.error("Erro no Service Worker:", error));
+  });
+}
+</script>
+        
 </body>
 </html>
