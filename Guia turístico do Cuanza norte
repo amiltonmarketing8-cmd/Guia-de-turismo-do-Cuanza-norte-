@@ -3,64 +3,436 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuanza Norte V3 Turismo</title>
+
+<title>Cuanza Norte Turismo V3</title>
 
 <style>
-corpo{
-    margem:0;
-    família-da-fonte:Arial;
-    fundo:#0b1f17;
-    cor: branca;
+/* ================================
+   BASE
+================================ */
+
+* {
+    box-sizing: border-box;
 }
 
-cabeçalho{
-    fundo:linear-gradient(135deg,#1b4332,#2d6a4f);
-    preenchimento:30px;
-    alinhamento-texto:centrado;
+html {
+    scroll-behavior: smooth;
 }
 
-.recipiente{
-    largura-máxima:900px;
-    margem:automática;
-    preenchimento: 20px;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #071812;
+    color: white;
 }
 
-.cartão{
-    fundo:#163024;
-    preenchimento: 20px;
-    margem:15px 0;
-    raio-da-borda:12px;
+/* ================================
+   CABEÇALHO
+================================ */
+
+header {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    padding: 35px 20px;
+    text-align: center;
 }
 
-botão{
-    fundo:#2d6a4f;
-    cor: branca;
-    preenchimento:12px;
-    borda:nenhuma;
-    raio-da-borda:8px;
-    cursor:ponteiro;
-    margem superior:10px;
+header h1 {
+    margin: 0;
+    font-size: 30px;
 }
 
-.premium{
-    exibir:nenhum;
-    fundo:#1f3d2c;
-    preenchimento:15px;
-    raio-da-borda:10px;
+header p {
+    margin: 10px 0 0;
+    color: #d8f3dc;
 }
 
-.trancar{
-    fundo:#3a1f1f;
-    preenchimento:10px;
-    raio-da-borda:8px;
+/* ================================
+   MENU
+================================ */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(8, 20, 15, 0.96);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px;
 }
 
-rodapé{
-    fundo:#08140f;
-    alinhamento-texto:centrado;
-    preenchimento: 20px;
-    margem-superior:20px;
-    tamanho da fonte: 14px;
+.navbar a {
+    color: white;
+    text-decoration: none;
+
+    padding: 9px 13px;
+    border-radius: 20px;
+
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    background: #2d6a4f;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+    width: min(100% - 30px, 950px);
+    margin: auto;
+}
+
+/* ================================
+   PESQUISA
+================================ */
+
+.search-area {
+    margin: 25px 0 15px;
+}
+
+.search-box {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+
+    background: #10261c;
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.search-box:focus {
+    border-color: #52b788;
+}
+
+/* ================================
+   FILTROS
+================================ */
+
+.filters {
+    display: flex;
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 5px 0 15px;
+
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: #10261c;
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #2d6a4f;
+}
+
+/* ================================
+   CARTÕES
+================================ */
+
+.card {
+    background: linear-gradient(145deg, #122a20, #0d2119);
+
+    padding: 20px;
+
+    margin: 15px 0;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    color: #c8d8d0;
+}
+
+/* ================================
+   DESTINOS
+================================ */
+
+.destination {
+    overflow: hidden;
+}
+
+.destination-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.category {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: rgba(82,183,136,0.15);
+    color: #74c69d;
+
+    font-size: 12px;
+}
+
+.destination-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 12px 0;
+}
+
+.info {
+    background: #0a1b14;
+
+    padding: 8px 10px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+/* ================================
+   MAPA
+================================ */
+
+.map-wrapper {
+    position: relative;
+
+    width: 100%;
+    height: 280px;
+
+    margin-top: 15px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #091c14;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    /* IMPORTANTE:
+       O mapa começa bloqueado.
+       Assim não interfere no scroll.
+    */
+    pointer-events: none;
+}
+
+.map-wrapper.active .map-frame {
+    pointer-events: auto;
+}
+
+.map-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.15);
+
+    cursor: pointer;
+}
+
+.map-wrapper.active .map-overlay {
+    display: none;
+}
+
+.map-overlay button {
+    background: rgba(7,24,18,0.92);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    padding: 13px 18px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+/* ================================
+   BOTÕES
+================================ */
+
+button,
+.action-button {
+    background: #2d6a4f;
+
+    color: white;
+
+    padding: 12px 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    margin-top: 8px;
+}
+
+button:hover,
+.action-button:hover {
+    background: #40916c;
+}
+
+.secondary {
+    background: #183d2d;
+}
+
+.secondary:hover {
+    background: #24553f;
+}
+
+/* ================================
+   PREMIUM
+================================ */
+
+.premium {
+    display: none;
+
+    background: #1f3d2c;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 10px;
+}
+
+.lock {
+    background: #3a1f1f;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    color: #ffd6d6;
+}
+
+/* ================================
+   NENHUM RESULTADO
+================================ */
+
+.no-results {
+    display: none;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #aabdb3;
+}
+
+/* ================================
+   RODAPÉ
+================================ */
+
+footer {
+    background: #050d09;
+
+    text-align: center;
+
+    padding: 25px 15px;
+
+    margin-top: 30px;
+
+    color: #9fb2a8;
+
+    font-size: 14px;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .navbar {
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    .navbar a {
+        white-space: nowrap;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .map-wrapper {
+        height: 240px;
+    }
+
+    .destination-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 </style>
 
@@ -68,106 +440,667 @@ rodapé{
 
 <body>
 
-<header>
-<h1>🌍 Cuanza Norte Turismo V3</h1>
-<p>Explora Angola com guia digital inteligente</p>
+<!-- ================================
+     CABEÇALHO
+================================ -->
+
+<header id="inicio">
+
+    <h1>🌍 Cuanza Norte Turismo</h1>
+
+    <p>
+        Descubra Angola através de um guia turístico digital.
+    </p>
+
 </header>
 
-<div class="container">
 
-<!-- 🟢 GRÁTIS -->
-<div class="card">
-<h2>🟢 Versão Grátis</h2>
-<p>Destinos: Ndalatando, Cambambe, Rio Kwanza</p>
-<p>Informações básicas para visitantes</p>
+<!-- ================================
+     MENU
+================================ -->
+
+<nav class="navbar">
+
+    <a href="#inicio">🏠 Início</a>
+
+    <a href="#destinos">📍 Destinos</a>
+
+    <a href="#premium-section">💎 Premium</a>
+
+    <a href="#contato">📞 Contato</a>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- ================================
+     PESQUISA
+================================ -->
+
+<section class="search-area">
+
+    <input
+        type="search"
+        id="search"
+        class="search-box"
+        placeholder="🔎 Procurar destino no Cuanza Norte..."
+    >
+
+</section>
+
+
+<!-- ================================
+     FILTROS
+================================ -->
+
+<div class="filters">
+
+    <button class="filter-btn active" data-filter="todos">
+        Todos
+    </button>
+
+    <button class="filter-btn" data-filter="natureza">
+        🌿 Natureza
+    </button>
+
+    <button class="filter-btn" data-filter="historia">
+        🏛️ História
+    </button>
+
+    <button class="filter-btn" data-filter="aventura">
+        🧗 Aventura
+    </button>
+
+    <button class="filter-btn" data-filter="cultura">
+        🎭 Cultura
+    </button>
+
 </div>
 
-<!-- 💎 PREMIUM -->
-<div class="card">
 
-<h2>💎 Versão Premium</h2>
+<!-- ================================
+     DESTINOS
+================================ -->
 
-<div id="premium" class="premium">
-<p>🔥 Roteiros completos</p>
-<p>🗺️ Mapas avançados</p>
-<p>📍 Locais secretos do Cuanza Norte</p>
+<section id="destinos">
+
+
+<!-- DESTINO 1 -->
+
+<article
+    class="card destination"
+    data-category="cultura"
+    data-name="Ndalatando"
+>
+
+    <div class="destination-header">
+
+        <div>
+
+            <span class="category">
+                🎭 Cultura
+            </span>
+
+            <h2>📍 Ndalatando</h2>
+
+        </div>
+
+    </div>
+
+    <p>
+        A capital do Cuanza Norte e uma das principais portas
+        de entrada para descobrir a província.
+    </p>
+
+    <div class="destination-info">
+
+        <span class="info">🇦🇴 Cuanza Norte</span>
+
+        <span class="info">🏙️ Cidade</span>
+
+        <span class="info">📍 Ndalatando</span>
+
+    </div>
+
+
+    <!-- MAPA -->
+
+    <div class="map-wrapper">
+
+        <iframe
+            class="map-frame"
+            loading="lazy"
+            src="https://www.google.com/maps?q=Ndalatando%2C%20Cuanza%20Norte%2C%20Angola&output=embed"
+            title="Mapa de Ndalatando"
+        ></iframe>
+
+        <div class="map-overlay">
+
+            <button type="button">
+                👆 Toque para interagir com o mapa
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <a
+        class="action-button"
+        href="https://www.google.com/maps/search/?api=1&query=Ndalatando%2C+Cuanza+Norte%2C+Angola"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        🧭 Abrir no Maps
+    </a>
+
+</article>
+
+
+<!-- DESTINO 2 -->
+
+<article
+    class="card destination"
+    data-category="aventura"
+    data-name="Cambambe"
+>
+
+    <div class="destination-header">
+
+        <div>
+
+            <span class="category">
+                🧗 Aventura
+            </span>
+
+            <h2>📍 Cambambe</h2>
+
+        </div>
+
+    </div>
+
+    <p>
+        Região do Cuanza Norte conhecida pela presença do
+        rio Kwanza e pela sua importância hidroelétrica.
+    </p>
+
+    <div class="destination-info">
+
+        <span class="info">🌊 Rio Kwanza</span>
+
+        <span class="info">⚡ Energia</span>
+
+        <span class="info">🗺️ Cuanza Norte</span>
+
+    </div>
+
+
+    <!-- MAPA -->
+
+    <div class="map-wrapper">
+
+        <iframe
+            class="map-frame"
+            loading="lazy"
+            src="https://www.google.com/maps?q=Cambambe%2C%20Cuanza%20Norte%2C%20Angola&output=embed"
+            title="Mapa de Cambambe"
+        ></iframe>
+
+        <div class="map-overlay">
+
+            <button type="button">
+                👆 Toque para interagir com o mapa
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <a
+        class="action-button"
+        href="https://www.google.com/maps/search/?api=1&query=Cambambe%2C+Cuanza+Norte%2C+Angola"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        🧭 Abrir no Maps
+    </a>
+
+</article>
+
+
+<!-- DESTINO 3 -->
+
+<article
+    class="card destination"
+    data-category="natureza"
+    data-name="Rio Kwanza"
+>
+
+    <div class="destination-header">
+
+        <div>
+
+            <span class="category">
+                🌿 Natureza
+            </span>
+
+            <h2>📍 Rio Kwanza</h2>
+
+        </div>
+
+    </div>
+
+    <p>
+        Um dos grandes elementos naturais de Angola,
+        com enorme potencial turístico e paisagístico.
+    </p>
+
+    <div class="destination-info">
+
+        <span class="info">🌊 Natureza</span>
+
+        <span class="info">📸 Paisagem</span>
+
+        <span class="info">🧭 Exploração</span>
+
+    </div>
+
+
+    <!-- MAPA -->
+
+    <div class="map-wrapper">
+
+        <iframe
+            class="map-frame"
+            loading="lazy"
+            src="https://www.google.com/maps?q=Rio%20Kwanza%2C%20Angola&output=embed"
+            title="Mapa do Rio Kwanza"
+        ></iframe>
+
+        <div class="map-overlay">
+
+            <button type="button">
+                👆 Toque para interagir com o mapa
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <a
+        class="action-button"
+        href="https://www.google.com/maps/search/?api=1&query=Rio+Kwanza%2C+Angola"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        🧭 Abrir no Maps
+    </a>
+
+</article>
+
+
+</section>
+
+
+<div id="no-results" class="no-results">
+
+    🔎 Nenhum destino encontrado.
+
 </div>
 
-<div id="lock" class="lock">
-🔒 Conteúdo Premium bloqueado
-</div>
 
-<button onclick="abrirPagamento()">
-💳 Ativar Premium (5$)
-</button>
+<!-- ================================
+     VERSÃO GRÁTIS
+================================ -->
 
-</div>
+<section class="card">
 
-<!-- 🇦🇴 PAGAMENTO LOCAL -->
-<div class="card">
-<h2>🇦🇴 Pagamento Local Angola</h2>
+    <h2>🟢 Versão Grátis</h2>
 
-<p>Bancos disponíveis:</p>
-<ul>
-<li>BAI</li>
-<li>BPC</li>
-<li>BIC</li>
-<li>Banco Sol</li>
-<li>Banco Econômico</li>
-</ul>
+    <p>
+        Explore destinos selecionados do Cuanza Norte
+        e tenha acesso a informações básicas.
+    </p>
 
-<button onclick="pagamentoLocal()">
-💳 Confirmar transferência local
-</button>
-</div>
+    <p>
+        📍 Destinos disponíveis: Ndalatando, Cambambe,
+        Rio Kwanza e outros que serão adicionados.
+    </p>
 
-<!-- 📞 CONTATO -->
-<div class="card">
-<h2>📞 Contato</h2>
-<p>Telefone: 973-8065-24</p>
-<p>Suporte e parcerias disponíveis</p>
-</div>
+</section>
 
-</div>
 
-<rodapé>
-© 2026 Cuanza Norte Turismo V3 | Projeto digital de exploração turística
+<!-- ================================
+     PREMIUM
+================================ -->
+
+<section
+    class="card"
+    id="premium-section"
+>
+
+    <h2>💎 Versão Premium</h2>
+
+    <div id="premium" class="premium">
+
+        <h3>🔥 Premium desbloqueado</h3>
+
+        <p>🧭 Roteiros completos</p>
+
+        <p>🗺️ Mapas avançados</p>
+
+        <p>📍 Locais turísticos adicionais</p>
+
+        <p>🌍 Conteúdo exclusivo</p>
+
+    </div>
+
+
+    <div id="lock" class="lock">
+
+        🔒 Conteúdo Premium bloqueado
+
+    </div>
+
+
+    <button
+        type="button"
+        onclick="abrirPagamento()"
+    >
+        💳 Ativar Premium — 5$
+    </button>
+
+</section>
+
+
+<!-- ================================
+     PAGAMENTO LOCAL
+================================ -->
+
+<section class="card">
+
+    <h2>🇦🇴 Pagamento Local Angola</h2>
+
+    <p>
+        Opções de pagamento disponíveis:
+    </p>
+
+    <ul>
+
+        <li>BAI</li>
+
+        <li>BPC</li>
+
+        <li>BIC</li>
+
+        <li>Banco Sol</li>
+
+        <li>Banco Económico</li>
+
+    </ul>
+
+
+    <button
+        type="button"
+        onclick="pagamentoLocal()"
+    >
+        💳 Ver instruções de transferência
+    </button>
+
+</section>
+
+
+<!-- ================================
+     CONTATO
+================================ -->
+
+<section
+    class="card"
+    id="contato"
+>
+
+    <h2>📞 Contato</h2>
+
+    <p>
+        Telefone: 973-8065-24
+    </p>
+
+    <p>
+        Suporte e parcerias disponíveis.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- ================================
+     RODAPÉ
+================================ -->
+
+<footer>
+
+    © 2026 Cuanza Norte Turismo V3
+
+    <br><br>
+
+    Projeto digital de exploração turística 🇦🇴
+
 </footer>
+
 
 <script>
 
+/* =================================
+   MAPAS
+================================= */
+
+document.querySelectorAll(".map-overlay").forEach(function(overlay) {
+
+    overlay.addEventListener("click", function() {
+
+        const map = overlay.parentElement;
+
+        map.classList.add("active");
+
+    });
+
+});
+
+
+/* =================================
+   PESQUISA + FILTROS
+================================= */
+
+const searchInput = document.getElementById("search");
+
+const destinations =
+    document.querySelectorAll(".destination");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const noResults =
+    document.getElementById("no-results");
+
+let currentFilter = "todos";
+
+
+function filtrarDestinos() {
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    let encontrados = 0;
+
+
+    destinations.forEach(function(destination) {
+
+        const name =
+            destination.dataset.name.toLowerCase();
+
+        const category =
+            destination.dataset.category.toLowerCase();
+
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesFilter =
+            currentFilter === "todos" ||
+            category === currentFilter;
+
+
+        if (matchesSearch && matchesFilter) {
+
+            destination.style.display = "block";
+
+            encontrados++;
+
+        } else {
+
+            destination.style.display = "none";
+
+        }
+
+    });
+
+
+    if (encontrados === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+}
+
+
+searchInput.addEventListener(
+    "input",
+    filtrarDestinos
+);
+
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        filterButtons.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        currentFilter =
+            button.dataset.filter;
+
+
+        filtrarDestinos();
+
+    });
+
+});
+
+
+/* =================================
+   PREMIUM
+================================= */
+
 let premiumAtivo = false;
 
-// 🌍 pagamento internacional
-função abrirPagamento(){
-    alert("Abrir pagamento internacional (Payoneer) 💳");
 
-    janela.abrir("https://www.payoneer.com/", "_blank");
+/*
+   IMPORTANTE:
+   Esta função NÃO ativa automaticamente
+   o Premium depois de alguns segundos.
 
-    setTimeout(()=>{
-        ativarPremium();
-    }, 5000);
-}
+   Primeiro abre o pagamento.
+   A ativação real deverá acontecer
+   depois de uma confirmação válida.
+*/
 
-// 🇦🇴 pagamento local
-função pagaLocal(){
-    alerta(
-`🏦x local:
+function abrirPagamento() {
 
-Banco: BAI / BPC / BIC / Banco Sol / Económico
-Titular: (o teu nome)
-: CUANZA PREMIUM
-
-Após confirmação, o Premium será ativado manualmente.`
+    alert(
+        "💳 O pagamento internacional será configurado nesta área.\n\n" +
+        "Depois de concluir o pagamento, o Premium deverá ser confirmado."
     );
+
+
+    window.open(
+        "https://www.payoneer.com/",
+        "_blank",
+        "noopener,noreferrer"
+    );
+
 }
 
-// 🔓 ativar premium
-função ativarPremium(){
-    premiumAtivo = verdadeiro;
-    document.getElementById("premium").style.display = "block";
-    document.getElementById("lock").style.display = "none";
-    alert("💎 Premium ativado com sucesso!");
+
+/* =================================
+   PAGAMENTO LOCAL
+================================= */
+
+function pagamentoLocal() {
+
+    alert(
+`🇦🇴 PAGAMENTO LOCAL
+
+🏦 Bancos:
+BAI
+BPC
+BIC
+Banco Sol
+Banco Económico
+
+Titular: (o teu nome)
+
+Referência:
+CUANZA PREMIUM
+
+Após a confirmação da transferência,
+o Premium poderá ser ativado manualmente.`
+    );
+
+}
+
+
+/* =================================
+   ATIVAR PREMIUM
+================================= */
+
+function ativarPremium() {
+
+    premiumAtivo = true;
+
+    document.getElementById(
+        "premium"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "lock"
+    ).style.display = "none";
+
+
+    alert(
+        "💎 Premium ativado com sucesso!"
+    );
+
 }
 
 </script>
